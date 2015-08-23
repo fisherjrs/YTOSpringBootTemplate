@@ -1,0 +1,61 @@
+package com.jostens.ytoconduit.controller;
+
+import java.util.Iterator;
+
+import javax.annotation.PostConstruct;
+
+import org.apache.commons.configuration.AbstractConfiguration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+@ComponentScan
+public class YTOConduitApplication extends SpringBootServletInitializer{
+	   
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(YTOConduitApplication.class);
+    }
+
+	public static void main(String[] args) throws Exception {
+        SpringApplication.run(YTOConduitApplication.class, args);
+    }
+   
+	@PostConstruct
+	private void init() {
+		System.out.println("Run me after all");
+	}
+/*
+	@Override
+	public Object getProperty(String key) {
+		return null;
+	}
+	
+	@Override
+	public boolean containsKey(String key) {
+		return getProperty(key) != null;
+	}
+
+	@Override
+	public Iterator<String> getKeys() {
+		return null;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return getKeys().hasNext();
+	}
+	
+	@Override
+	protected void addPropertyDirect(String key, Object value) {
+		
+	}
+*/
+}
