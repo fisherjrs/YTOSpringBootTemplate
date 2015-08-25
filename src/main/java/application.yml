@@ -1,0 +1,6 @@
+
+spring:
+    main:
+        show-banner: true
+server:
+    port: 9000

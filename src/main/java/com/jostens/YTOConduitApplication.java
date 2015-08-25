@@ -51,7 +51,7 @@ public class YTOConduitApplication extends SpringBootServletInitializer{
 	//Keep this for local dev when using the embedded Container.
     public static void main(String[] args) throws Exception {
 		SpringApplication application = new SpringApplication(YTOConduitApplication.class);
-		application.setShowBanner(false);		
+		//application.setShowBanner(false);		
         application.setSources(defineConfigSources());
         
         //application.addListeners(new ListenerApplication());
