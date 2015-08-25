@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.jostens</groupId>
-    <artifactId>jostens-yto-conduit</artifactId>
+    <artifactId>ytoboot</artifactId>
     <version>0.1.0</version>    
 	<packaging>war</packaging>
 
-	<name>YTO Conduit</name>
+	<name>YTO Spring Boot Template Project</name>
 	<description>Project for importing/exporting design definitions for YTO</description>
 	
     <parent>
