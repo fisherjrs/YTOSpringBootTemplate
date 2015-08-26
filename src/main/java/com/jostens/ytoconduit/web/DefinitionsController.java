@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import service.DefinitionsService;
+
 import com.jostens.config.YTOConfig;
+import com.jostens.model.YTODesignDefinition;
 
 @Controller
 @RequestMapping("/conduitservices")
@@ -21,10 +24,18 @@ public class DefinitionsController {
 	YTOConfig ytoConfig;
 	@Autowired
 	private ApplicationContext context;
+	@Autowired
+	private DefinitionsService definitionsService;
+	
 	
     @RequestMapping("/home")
-    public String home(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+    public String home(
+    		@RequestParam(value="name", required=false, defaultValue="World") String name,
+    		@RequestParam(value="designId", required=false, defaultValue="9") String designId,
+    		Model model) {
         model.addAttribute("name", name);
+        YTODesignDefinition designDefinition = definitionsService.getDesignDefinition(Long.valueOf(designId));
+        model.addAttribute("designDefinition", designDefinition);
         return "greeting";
     }
 	
@@ -32,8 +43,7 @@ public class DefinitionsController {
     public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
         return "greeting";
-    }
-    
+    }    
     
     
     @ResponseBody

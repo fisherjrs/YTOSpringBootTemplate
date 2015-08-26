@@ -7,8 +7,12 @@ import javax.annotation.PostConstruct;
 import org.apache.commons.configuration.AbstractConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+
+import service.DefinitionsService;
+import service.TransferService;
 
 @Configuration
 @ComponentScan
@@ -19,6 +23,11 @@ public class YTOConfig extends AbstractConfiguration {
 	public YTOConfig() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Bean
+    public DefinitionsService definitionsService() {
+        return new DefinitionsService();
+    }
 	
 	@PostConstruct
 	private void init() {

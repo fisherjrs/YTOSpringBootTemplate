@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.jostens</groupId>
-    <artifactId>jostens-yto-conduit</artifactId>
+    <artifactId>ytoboot</artifactId>
     <version>0.1.0</version>    
 	<packaging>war</packaging>
 
@@ -62,7 +62,11 @@
 		    <groupId>org.webjars</groupId>
 		    <artifactId>jquery</artifactId>
 		    <version>2.1.1</version>
-		</dependency>    
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-solr</artifactId>
+		</dependency>
     </dependencies>
 
     <build>
