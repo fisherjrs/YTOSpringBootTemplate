@@ -22,11 +22,19 @@ public class DefinitionsController {
 	@Autowired
 	private ApplicationContext context;
 	
-    @RequestMapping("/greeting")
+    @RequestMapping("/home")
+    public String home(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "greeting";
+    }
+	
+	@RequestMapping("/greeting")
     public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
         return "greeting";
     }
+    
+    
     
     @ResponseBody
 	@RequestMapping(value = "/getClipartImageDefinition.json")

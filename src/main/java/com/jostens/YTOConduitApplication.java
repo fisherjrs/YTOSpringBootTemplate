@@ -43,6 +43,8 @@ public class YTOConduitApplication extends SpringBootServletInitializer{
 	protected WebApplicationContext createRootApplicationContext(ServletContext servletContext) {
     	WebApplicationContext applicationContext = super.createRootApplicationContext(servletContext);
     	LOG.info("application context :: {}",  applicationContext.getClass());
+    	LOG.info("application context :: {}",  applicationContext.getApplicationName());
+    	LOG.info("application context :: {}",  applicationContext.getServletContext());
     	return applicationContext;
 	}
     
