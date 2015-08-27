@@ -8,11 +8,15 @@ import org.apache.commons.configuration.AbstractConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 import service.DefinitionsService;
 import service.TransferService;
@@ -34,6 +38,16 @@ public class YTOConfig extends AbstractConfiguration {
     public DefinitionsService definitionsService() {
         return new DefinitionsService();
     }
+	
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer properties(){
+		PropertySourcesPlaceholderConfigurer configurer =   new PropertySourcesPlaceholderConfigurer();		
+		Resource[] resources = new ClassPathResource[ ]
+		    { new ClassPathResource( "application.yml" ) };
+		configurer.setLocations( resources );
+		configurer.setIgnoreUnresolvablePlaceholders( true );
+		 return configurer;
+	}
 	
 	@PostConstruct
 	private void init() {

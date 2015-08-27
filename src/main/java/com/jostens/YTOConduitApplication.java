@@ -18,6 +18,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.WebApplicationContext;
 
+import scala.annotation.meta.setter;
+
 import com.jostens.config.YTOConfig;
 import com.jostens.context.ConduitApplicationContext;
 
@@ -60,14 +62,13 @@ public class YTOConduitApplication extends SpringBootServletInitializer{
         
         //application.addListeners(new ListenerApplication());
         
-        application.setApplicationContextClass(ConduitApplicationContext.class);       
-        
+        application.setApplicationContextClass(ConduitApplicationContext.class);    
+               
         //Enable/Disable container restart when saving files.
     	System.setProperty("spring.devtools.restart.enabled", "false");
     	
     	ApplicationContext applicationContext = application.run(args);
-    	LOG.info("application context :: {}",  applicationContext.getClass());
-		
+    	LOG.info("application context :: {}",  applicationContext.getClass());		
     }
   
 	@PostConstruct
