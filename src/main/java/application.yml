@@ -4,3 +4,7 @@ spring:
         show-banner: true
 server:
     port: 9000
+
+application-state:
+    on-network: false
+    datasource-type: xml

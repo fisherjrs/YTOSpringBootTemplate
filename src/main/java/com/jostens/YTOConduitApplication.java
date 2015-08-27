@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -27,6 +28,8 @@ import com.jostens.context.ConduitApplicationContext;
 public class YTOConduitApplication extends SpringBootServletInitializer{
 	
 	private static Logger LOG = LoggerFactory.getLogger(YTOConduitApplication.class);
+	@Value("${application-state.on-network}")
+    private String onNetwork;
 	
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -69,7 +72,7 @@ public class YTOConduitApplication extends SpringBootServletInitializer{
   
 	@PostConstruct
 	private void init() {
-		LOG.info("Initialized Application.");
+		LOG.info("Initialized Application. ... " + onNetwork);
 	}
 	
 	private static HashSet<Object> defineConfigSources() {
