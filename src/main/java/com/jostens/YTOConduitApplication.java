@@ -60,7 +60,7 @@ public class YTOConduitApplication extends SpringBootServletInitializer{
         
         //application.addListeners(new ListenerApplication());
         
-        application.setApplicationContextClass(ConduitApplicationContext.class);
+        application.setApplicationContextClass(ConduitApplicationContext.class);       
         
         //Enable/Disable container restart when saving files.
     	System.setProperty("spring.devtools.restart.enabled", "false");
