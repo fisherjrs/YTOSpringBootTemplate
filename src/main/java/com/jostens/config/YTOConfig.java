@@ -56,6 +56,9 @@ public class YTOConfig extends AbstractConfiguration {
 			LOG.info("We have an environment that is ConfigurableEnvironment.");
 			LOG.info("Profiles :: " + env.getActiveProfiles());
 			LOG.info("Property :: " + env.getProperty("spring.profiles.active"));
+			for (String profile : env.getActiveProfiles()) {
+				LOG.info("profile :: " + profile);
+			}
 			/*
 			String resource = env.getProperty("spring.profiles.sub") +".main.properties";
 		        Resource props = new ClassPathResource(resource);

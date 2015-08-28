@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -16,6 +17,7 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.web.context.WebApplicationContext;
 
 import scala.annotation.meta.setter;
@@ -30,8 +32,15 @@ import com.jostens.context.ConduitApplicationContext;
 public class YTOConduitApplication extends SpringBootServletInitializer{
 	
 	private static Logger LOG = LoggerFactory.getLogger(YTOConduitApplication.class);
-	@Value("${application-state.on-network}")
-    private String onNetwork;
+	
+	/*
+	 * Autowire the environment bean and use env.getProperty() to get environment, system and application properties.
+	 *  It replaces the @Value autowiring
+	 *	@Value("${application-state.on-network}")
+     *	private String onNetwork;
+	 */
+	@Autowired
+	private Environment env;
 	
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -73,7 +82,7 @@ public class YTOConduitApplication extends SpringBootServletInitializer{
   
 	@PostConstruct
 	private void init() {
-		LOG.info("Initialized Application. ... " + onNetwork);
+		LOG.info("Initialized Application. Are we on the network? " + env.getProperty("application-state.on-network") );
 	}
 	
 	private static HashSet<Object> defineConfigSources() {
