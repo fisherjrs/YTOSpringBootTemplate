@@ -2,12 +2,10 @@ package com.jostens.ytoconduit.web;
 
 import java.util.Map;
 
-import org.apache.commons.beanutils.MappedPropertyDescriptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
@@ -16,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.support.ServletContextPropertySource;
 
 import service.DefinitionsService;
@@ -105,7 +102,7 @@ public class PropertiesController {
         
         
         
-        return "greeting";
+        return "properties";
     }
 
 
