@@ -2,18 +2,22 @@ package com.jostens.ytoconduit.web;
 
 import java.util.Map;
 
+import org.apache.commons.beanutils.MappedPropertyDescriptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
+import org.springframework.core.env.MapPropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.support.ServletContextPropertySource;
 
 import service.DefinitionsService;
 
@@ -54,29 +58,39 @@ public class PropertiesController {
 				LOG.info("defaultprofile :: " + profile);
 			}
 
+			//Loop over config property sources
 			for (org.springframework.core.env.PropertySource<?> propertySource : ((ConfigurableEnvironment) env).getPropertySources() ) {
-				LOG.info("property source " + propertySource.getName());
+				LOG.info("property source " + propertySource.getName() + " " + propertySource.getClass());
+				
+				//ServletContextPropertySource
+				if ("servletContextInitParams".equals(propertySource.getName()) & propertySource instanceof ServletContextPropertySource) {
+					LOG.info("PropertySource ::: ServletContextPropertySource");
+					String[] servletContextPropertyNames = ((ServletContextPropertySource) propertySource).getPropertyNames();
+					for(String propertyName : servletContextPropertyNames) {
+						LOG.info("Servlet Property :: " + propertyName + " :: " + env.getProperty(propertyName));
+					}
+				}
+				
+				//MapPropertySource ... application config ... the name is pretty hokey ... find a better way to isolate the application.yml file
+				if ( "applicationConfig: [classpath:/application.yml]".equals(propertySource.getName()) & propertySource instanceof MapPropertySource) {
+					LOG.info("The property source is a MappedPropertySource");
+					String[] applicationConfigPropertyNames = ((MapPropertySource) propertySource).getPropertyNames();
+					for(String propertyName : applicationConfigPropertyNames) {
+						LOG.info("App Config Property :: " + propertyName + " :: " + env.getProperty(propertyName));
+					}
+				}
 			}
 			
 			Map<String,Object> properties = ((ConfigurableEnvironment) env).getSystemProperties();
 			for(Map.Entry<String,Object> item : properties.entrySet()) {
-				LOG.info("property map :: " + item.getKey() + " ::: " + item.getValue());
+				LOG.info("system property :: " + item.getKey() + " ::: " + item.getValue());
 			}
 			
 			Map<String,Object> systemEnv = ((ConfigurableEnvironment) env).getSystemEnvironment();
 			for(Map.Entry<String,Object> item : systemEnv.entrySet()) {
-				LOG.info("property map :: " + item.getKey() + " ::: " + item.getValue());
+				LOG.info("env property :: " + item.getKey() + " ::: " + item.getValue());
 			}
-			
-			
-			/*
-			String resource = env.getProperty("spring.profiles.sub") +".main.properties";
-		        Resource props = new ClassPathResource(resource);
-		        if (env instanceof ConfigurableEnvironment && props.exists()) {
-		            MutablePropertySources sources = ((ConfigurableEnvironment) env).getPropertySources();
-		            sources.addBefore("main", new ResourcePropertySource(props)); 
-		        }
-		    */
+
 		} else {
 			LOG.info("Not a configurable environment.");
 		}

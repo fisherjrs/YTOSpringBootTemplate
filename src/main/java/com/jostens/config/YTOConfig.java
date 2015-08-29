@@ -39,6 +39,7 @@ public class YTOConfig extends AbstractConfiguration {
         return new DefinitionsService();
     }
 	
+	/*
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer properties(){
 		PropertySourcesPlaceholderConfigurer configurer =   new PropertySourcesPlaceholderConfigurer();		
@@ -48,6 +49,7 @@ public class YTOConfig extends AbstractConfiguration {
 		configurer.setIgnoreUnresolvablePlaceholders( true );
 		 return configurer;
 	}
+	*/
 	
 	@PostConstruct
 	private void init() {
