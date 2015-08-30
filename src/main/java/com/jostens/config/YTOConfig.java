@@ -1,5 +1,6 @@
 package com.jostens.config;
 
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 
 import javax.annotation.PostConstruct;
@@ -17,8 +18,10 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import service.DefinitionsService;
+import service.MessageService;
 import service.TransferService;
 
 @Configuration
@@ -38,6 +41,19 @@ public class YTOConfig extends AbstractConfiguration {
     public DefinitionsService definitionsService() {
         return new DefinitionsService();
     }
+	
+	@Bean
+	public MessageService messageService() {
+		return new MessageService();
+	}
+	
+	@Bean
+	public Jackson2ObjectMapperBuilder jacksonBuilder() {
+		Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
+		builder.indentOutput(true);
+		builder.dateFormat(new SimpleDateFormat("yyyy-MM-dd"));
+		return builder;
+	}
 	
 	/*
 	@Bean
