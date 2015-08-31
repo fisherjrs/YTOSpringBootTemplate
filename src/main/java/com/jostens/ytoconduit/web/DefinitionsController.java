@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import service.DefinitionsService;
-
 import com.jostens.config.YTOConfig;
 import com.jostens.model.YTODesignDefinition;
+import com.jostens.service.ytoconduit.DefinitionsService;
 
 @Controller
 @RequestMapping("/conduitservices")

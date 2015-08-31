@@ -20,18 +20,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.support.ServletContextPropertySource;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import service.DefinitionsService;
-import service.MessageService;
+import com.jostens.service.ytoconduit.MessageService;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.jostens.config.YTOConfig;
 import com.jostens.model.Message;
 import com.jostens.model.View;
 import com.jostens.model.YTODesignDefinition;
+import com.jostens.service.ytoconduit.DefinitionsService;
 
 @Controller
 @RequestMapping("/conduitservices")

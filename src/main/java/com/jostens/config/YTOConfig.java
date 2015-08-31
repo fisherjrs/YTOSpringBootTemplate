@@ -20,10 +20,11 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
-import service.DefinitionsService;
-import service.MessageService;
-import service.TaskService;
-import service.TransferService;
+import com.jostens.service.ytoconduit.DefinitionsService;
+import com.jostens.service.ytoconduit.TransferService;
+
+import com.jostens.service.ytoconduit.MessageService;
+import com.jostens.service.ytoconduit.TaskService;
 
 @Configuration
 @ComponentScan

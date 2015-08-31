@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import service.TaskService;
+import com.jostens.service.ytoconduit.TaskService;
 
 @RestController
+@RequestMapping("/conduitservices")
 public class AsyncCallableController {
 	private static Logger LOG = LoggerFactory.getLogger(TaskService.class);
 	@Autowired

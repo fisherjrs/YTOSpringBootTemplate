@@ -1,4 +1,4 @@
-package service;
+package com.jostens.service.ytoconduit;
 
 import java.net.URI;
 import java.net.URISyntaxException;
