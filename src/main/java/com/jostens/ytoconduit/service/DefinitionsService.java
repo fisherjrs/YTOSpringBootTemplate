@@ -1,4 +1,4 @@
-package com.jostens.service.ytoconduit;
+package com.jostens.ytoconduit.service;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -8,8 +8,8 @@ import java.util.List;
 import org.apache.http.client.utils.URIBuilder;
 import org.springframework.stereotype.Service;
 
-import com.jostens.model.YTODesignDefinition;
-import com.jostens.model.YTOImageDefinition;
+import com.jostens.ytoconduit.model.YTODesignDefinition;
+import com.jostens.ytoconduit.model.YTOImageDefinition;
 
 @Service
 public class DefinitionsService {

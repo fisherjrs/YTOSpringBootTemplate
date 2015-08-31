@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jostens.config.YTOConfig;
-import com.jostens.model.YTODesignDefinition;
-import com.jostens.service.ytoconduit.DefinitionsService;
+import com.jostens.ytoconduit.model.YTODesignDefinition;
+import com.jostens.ytoconduit.service.DefinitionsService;
 
 @Controller
 @RequestMapping("/conduitservices")

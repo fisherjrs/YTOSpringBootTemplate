@@ -1,4 +1,4 @@
-package com.jostens.model;
+package com.jostens.ytoconduit.model;
 
 import java.io.Serializable;
 import java.util.Map;

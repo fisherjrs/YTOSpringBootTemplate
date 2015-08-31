@@ -1,4 +1,4 @@
-package com.jostens.model;
+package com.jostens.ytoconduit.model;
 import com.fasterxml.jackson.annotation.JsonView;
 
 public class User {

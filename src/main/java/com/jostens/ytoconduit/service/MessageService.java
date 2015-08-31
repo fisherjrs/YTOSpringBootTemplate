@@ -1,4 +1,4 @@
-package com.jostens.service.ytoconduit;
+package com.jostens.ytoconduit.service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.jostens.model.Message;
-import com.jostens.model.User;
+import com.jostens.ytoconduit.model.Message;
+import com.jostens.ytoconduit.model.User;
 
 @Service
 public class MessageService {

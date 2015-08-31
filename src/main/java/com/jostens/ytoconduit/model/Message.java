@@ -1,4 +1,4 @@
-package com.jostens.model;
+package com.jostens.ytoconduit.model;
 
 import java.time.LocalDate;
 import java.util.Arrays;

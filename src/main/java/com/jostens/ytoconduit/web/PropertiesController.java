@@ -23,14 +23,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jostens.service.ytoconduit.MessageService;
-
 import com.fasterxml.jackson.annotation.JsonView;
 import com.jostens.config.YTOConfig;
-import com.jostens.model.Message;
-import com.jostens.model.View;
-import com.jostens.model.YTODesignDefinition;
-import com.jostens.service.ytoconduit.DefinitionsService;
+import com.jostens.ytoconduit.model.Message;
+import com.jostens.ytoconduit.model.View;
+import com.jostens.ytoconduit.model.YTODesignDefinition;
+import com.jostens.ytoconduit.service.DefinitionsService;
+import com.jostens.ytoconduit.service.MessageService;
 
 @Controller
 @RequestMapping("/conduitservices")

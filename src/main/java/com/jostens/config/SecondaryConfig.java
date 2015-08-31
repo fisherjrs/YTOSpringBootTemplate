@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.jostens.service.ytoconduit.TransferService;
+import com.jostens.ytoconduit.service.TransferService;
 
 @Configuration
 public class SecondaryConfig {

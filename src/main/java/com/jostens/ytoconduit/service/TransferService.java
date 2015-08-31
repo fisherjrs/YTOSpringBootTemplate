@@ -1,4 +1,4 @@
-package com.jostens.service.ytoconduit;
+package com.jostens.ytoconduit.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
