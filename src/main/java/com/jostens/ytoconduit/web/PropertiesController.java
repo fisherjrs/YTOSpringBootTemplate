@@ -59,6 +59,13 @@ public class PropertiesController {
 		return messageService.getAll();
 	}
 	
+	@JsonView(View.SummaryWithRecipients.class)
+	@RequestMapping("/getmessagesextended.json")
+	@ResponseBody()
+	public List<Message> getAllMessagesExtended() {
+		return messageService.getAll();
+	}
+	
 	@RequestMapping("/listproperties")
 	@ResponseBody()
 	public String listProperties (Model model) {

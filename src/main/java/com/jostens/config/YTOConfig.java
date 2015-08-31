@@ -22,6 +22,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import service.DefinitionsService;
 import service.MessageService;
+import service.TaskService;
 import service.TransferService;
 
 @Configuration
@@ -45,6 +46,11 @@ public class YTOConfig extends AbstractConfiguration {
 	@Bean
 	public MessageService messageService() {
 		return new MessageService();
+	}
+	
+	@Bean
+	public TaskService taskService() {
+		return new TaskService();
 	}
 	
 	@Bean
